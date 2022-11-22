@@ -1,3 +1,4 @@
+import Feedbackitem from "./components/Feedbackitem";
 import Header from "./components/Header";
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
       // bgColor="lime" textColor="white"
       />
       <div className="container">
-        <h1>My App</h1>
+        <Feedbackitem />
       </div>
     </>
   );
