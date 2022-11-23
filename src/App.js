@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import FeedbackList from "./components/FeedbackList";
 import FeedbackStats from "./components/FeedbackStats";
+import FeedbackForm from "./components/FeedbackForm";
 import { feedbackData } from "./data/feedbackData";
 
 function App() {
@@ -17,9 +18,11 @@ function App() {
   return (
     <>
       <Header
-      // bgColor="lime" textColor="white"
+      // bgColor="lime"
+      // textColor="white"
       />
       <div className="container">
+        <FeedbackForm />
         <FeedbackStats feedback={feedback} />
         <FeedbackList
           feedback={feedback}
