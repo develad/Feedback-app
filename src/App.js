@@ -1,6 +1,8 @@
 import { useState } from "react";
+
 import Header from "./components/Header";
 import FeedbackList from "./components/FeedbackList";
+import FeedbackStats from "./components/FeedbackStats";
 import { feedbackData } from "./data/feedbackData";
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
       // bgColor="lime" textColor="white"
       />
       <div className="container">
+        <FeedbackStats feedback={feedback} />
         <FeedbackList
           feedback={feedback}
           handleDelete={deleteFeedback}
