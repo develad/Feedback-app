@@ -1,4 +1,8 @@
 function RatingSelect({ select, selected }) {
+  //
+  // select => setRating from FeedbackForm.jsx
+  // selected => rating from FeedbackForm.jsx
+
   // NOTE: We don't need local state here as it's a duplicate of parent state
   // also no real need for useEffect or context
   // useEffect(() => {
@@ -6,6 +10,8 @@ function RatingSelect({ select, selected }) {
   // }, [feedbackEdit])
 
   const handleChange = (e) => {
+    // console.log(+e.currentTarget.value);
+
     select(+e.currentTarget.value);
   };
 
