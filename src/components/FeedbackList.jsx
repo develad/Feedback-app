@@ -9,13 +9,19 @@ function FeedbackList({ feedback, handleDelete }) {
 
   return (
     <div className="feedback-list">
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {feedback.map((item) => (
           <motion.div
             key={item.id}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, y: "-100%" }}
+            animate={{ opacity: 1, y: "0%" }}
+            exit={{ opacity: 0, y: "-100%" }}
+            transition={{
+              ease: "anticipate",
+              duration: 0.4,
+              repeatType: "reverse",
+              repeat: 2,
+            }}
           >
             <Feedbackitem
               key={item.id}
