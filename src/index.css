@@ -172,17 +172,20 @@ input:focus {
   background-color: #cccccc;
   color: #333;
   cursor: auto;
+  opacity: 0.4;
 }
 
 .btn:disabled:hover {
   transform: scale(1);
   opacity: 1;
+  transition: opacity 0.2s ease;
 }
 
 .message {
   padding-top: 10px;
   text-align: center;
-  color: rebeccapurple;
+  color: #ff6a95;
+  font-weight: 600;
 }
 
 /* FIX: Remove position: absolute to keep about icon at the bottom of the
