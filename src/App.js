@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
+import { Routes, Route } from "react-router-dom";
+import About from "./pages/About";
+
 import Header from "./components/Header";
 import FeedbackList from "./components/FeedbackList";
 import FeedbackStats from "./components/FeedbackStats";
@@ -29,12 +32,25 @@ function App() {
       // textColor="white"
       />
       <div className="container">
-        <FeedbackForm handleAdd={addFeedback} />
-        <FeedbackStats feedback={feedback} />
-        <FeedbackList
-          feedback={feedback}
-          handleDelete={deleteFeedback}
-        />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <FeedbackForm handleAdd={addFeedback} />
+                <FeedbackStats feedback={feedback} />
+                <FeedbackList
+                  feedback={feedback}
+                  handleDelete={deleteFeedback}
+                />
+              </>
+            }
+          />
+          <Route
+            path="/about"
+            element={<About />}
+          />
+        </Routes>
       </div>
     </>
   );
