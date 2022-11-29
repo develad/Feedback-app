@@ -10,6 +10,7 @@ import FeedbackList from "./components/FeedbackList";
 import FeedbackStats from "./components/FeedbackStats";
 import FeedbackForm from "./components/FeedbackForm";
 import { feedbackData } from "./data/feedbackData";
+import { FeedbackProvider } from "./context/FeedbackContext";
 
 function App() {
   const [feedback, setFeedback] = useState(feedbackData);
@@ -27,34 +28,33 @@ function App() {
   };
 
   return (
-    <>
-      <Header
-      // bgColor="lime"
-      // textColor="white"
-      />
-      <div className="container">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <FeedbackForm handleAdd={addFeedback} />
-                <FeedbackStats feedback={feedback} />
-                <FeedbackList
-                  feedback={feedback}
-                  handleDelete={deleteFeedback}
-                />
-              </>
-            }
-          />
-          <Route
-            path="/about"
-            element={<About />}
-          />
-        </Routes>
-        <AboutIconLink />
-      </div>
-    </>
+    <FeedbackProvider>
+      <>
+        <Header
+        // bgColor="lime"
+        // textColor="white"
+        />
+        <div className="container">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <FeedbackForm handleAdd={addFeedback} />
+                  <FeedbackStats />
+                  <FeedbackList handleDelete={deleteFeedback} />
+                </>
+              }
+            />
+            <Route
+              path="/about"
+              element={<About />}
+            />
+          </Routes>
+          <AboutIconLink />
+        </div>
+      </>
+    </FeedbackProvider>
   );
 }
 

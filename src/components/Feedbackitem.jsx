@@ -22,7 +22,7 @@ function Feedbackitem({ item, handleDelete }) {
   );
 }
 
-Feedbackitem.prototype = {
+Feedbackitem.propTypes = {
   item: PropTypes.object.isRequired,
 };
 
