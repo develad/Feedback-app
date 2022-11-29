@@ -4,12 +4,7 @@ import FeedbackContext from "../context/FeedbackContext";
 import Card from "./shared/Card";
 import { FaTimes } from "react-icons/fa";
 
-// import PropTypes from "prop-types";
-
 function Feedbackitem({ item }) {
-  //   const [rating, setRating] = useState(7);
-  //   const [text, setText] = useState("This is an example of a feedback item");
-
   const { handleDelete } = useContext(FeedbackContext);
   return (
     <Card>
@@ -24,9 +19,5 @@ function Feedbackitem({ item }) {
     </Card>
   );
 }
-
-// Feedbackitem.propTypes = {
-//   item: PropTypes.object.isRequired,
-// };
 
 export default Feedbackitem;
