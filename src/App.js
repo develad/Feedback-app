@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import About from "./pages/About";
 
 import Header from "./components/Header";
+import AboutIconLink from "./components/AboutIconLink";
 import FeedbackList from "./components/FeedbackList";
 import FeedbackStats from "./components/FeedbackStats";
 import FeedbackForm from "./components/FeedbackForm";
@@ -51,6 +52,7 @@ function App() {
             element={<About />}
           />
         </Routes>
+        <AboutIconLink />
       </div>
     </>
   );

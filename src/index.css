@@ -11,6 +11,7 @@ body {
   background-color: #202142;
   color: #fff;
   line-height: 1.6;
+  /* position: relative; */
 }
 
 ::-webkit-scrollbar {
@@ -214,6 +215,12 @@ input:focus {
   display: flex;
   justify-content: flex-end;
 }
+/* .about-link {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  
+} */
 
 /* FIX: Remove position: absolute to keep about icon at the bottom of the
  * document */
