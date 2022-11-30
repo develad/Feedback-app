@@ -28,7 +28,7 @@ const FeedbackProvider = ({ children }) => {
     },
   ]);
   const [feedbackEdit, setFeedbackEdit] = useState({
-    item: { rating: 5 },
+    item: {},
     edit: false,
   });
 
