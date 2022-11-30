@@ -5,7 +5,8 @@ import Card from "./shared/Card";
 import { FaTimes, FaEdit } from "react-icons/fa";
 
 function Feedbackitem({ item }) {
-  const { handleDelete, editFeedback } = useContext(FeedbackContext);
+  const { deleteFeedback: handleDelete, editFeedback } =
+    useContext(FeedbackContext);
   return (
     <Card>
       <div className="num-display">{item.rating}</div>

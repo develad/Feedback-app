@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Card from "../components/shared/Card";
+import { FaHome } from "react-icons/fa";
 
 function AboutPage() {
   return (
@@ -10,7 +11,20 @@ function AboutPage() {
         <p>Version: 1.0.0</p>
 
         <p>
-          <Link to="/">Back To Home</Link>
+          <Link
+            to="/"
+            style={{
+              color: "#03a9f4",
+              display: "flex",
+              alignItems: "flex-start",
+            }}
+          >
+            <FaHome
+              size={22}
+              style={{ marginRight: "0.25rem", paddingBottom: "2px" }}
+            />{" "}
+            Back To Home
+          </Link>
         </p>
       </div>
     </Card>
