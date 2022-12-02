@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from "react";
+import { FaEdit } from "react-icons/fa";
 import FeedbackContext from "../context/FeedbackContext";
 
 import RatingSelect from "./RatingSelect";
@@ -16,6 +17,8 @@ function FeedbackForm() {
     feedbackEdit,
     selected,
     setSelected,
+    updateFeedback,
+    setFeedbackEdit,
   } = useContext(FeedbackContext);
 
   useEffect(() => {
@@ -23,6 +26,7 @@ function FeedbackForm() {
       setBtnDisabled(false);
       setText(feedbackEdit.item.text);
       setSelected(feedbackEdit.item.rating);
+      setMassage("Edit Mode!");
     }
   }, [feedbackEdit, setSelected]);
 
@@ -48,7 +52,14 @@ function FeedbackForm() {
         text,
         rating: selected,
       };
-      handleAdd(newFeedback);
+
+      if (feedbackEdit.edit === true) {
+        updateFeedback(feedbackEdit.item.id, newFeedback);
+        setFeedbackEdit({ ...feedbackEdit, edit: false });
+        setMassage("");
+      } else {
+        handleAdd(newFeedback);
+      }
       setText("");
     }
   };
@@ -72,7 +83,21 @@ function FeedbackForm() {
           </Button>
         </div>
 
-        {message && <div className="message">{message}</div>}
+        {message && message === "Edit Mode!" ? (
+          <div
+            className="message"
+            style={{
+              color: "#202142",
+              fontWeight: "bold",
+              fontSize: "1.5rem",
+            }}
+          >
+            <FaEdit style={{ marginRight: "0.5rem", marginBottom: "-3px" }} />
+            {message}
+          </div>
+        ) : (
+          <div className="message">{message}</div>
+        )}
       </form>
     </Card>
   );
