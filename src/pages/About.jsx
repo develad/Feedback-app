@@ -23,7 +23,7 @@ function AboutPage() {
               size={22}
               style={{ marginRight: "0.25rem", paddingBottom: "2px" }}
             />{" "}
-            Back To Home
+            Back To Home Page
           </Link>
         </p>
       </div>

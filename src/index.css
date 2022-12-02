@@ -171,6 +171,11 @@ input:focus {
   right: 40px;
 }
 
+.edit-item-num {
+  color: #202142;
+  background-color: lime;
+}
+
 .btn {
   color: #fff;
   border: 0;

@@ -8,6 +8,7 @@ import Card from "./shared/Card";
 
 function FeedbackForm() {
   const [text, setText] = useState("");
+  const [editMode, setEditMode] = useState("");
   // const [rating, setSelected] = useState(10);
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMassage] = useState("");
@@ -26,7 +27,7 @@ function FeedbackForm() {
       setBtnDisabled(false);
       setText(feedbackEdit.item.text);
       setSelected(feedbackEdit.item.rating);
-      setMassage("Edit Mode!");
+      setEditMode("Edit Mode!");
     }
   }, [feedbackEdit, setSelected]);
 
@@ -56,7 +57,7 @@ function FeedbackForm() {
       if (feedbackEdit.edit === true) {
         updateFeedback(feedbackEdit.item.id, newFeedback);
         setFeedbackEdit({ ...feedbackEdit, edit: false });
-        setMassage("");
+        setEditMode("");
       } else {
         handleAdd(newFeedback);
       }
@@ -83,7 +84,8 @@ function FeedbackForm() {
           </Button>
         </div>
 
-        {message && message === "Edit Mode!" ? (
+        {message && <div className="message">{message}</div>}
+        {editMode && (
           <div
             className="message"
             style={{
@@ -93,10 +95,8 @@ function FeedbackForm() {
             }}
           >
             <FaEdit style={{ marginRight: "0.5rem", marginBottom: "-3px" }} />
-            {message}
+            {editMode}
           </div>
-        ) : (
-          <div className="message">{message}</div>
         )}
       </form>
     </Card>
