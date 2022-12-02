@@ -57,6 +57,7 @@ function FeedbackForm() {
       if (feedbackEdit.edit === true) {
         updateFeedback(feedbackEdit.item.id, newFeedback);
         setFeedbackEdit({ ...feedbackEdit, edit: false });
+        // setSelected(null);
         setEditMode("");
       } else {
         handleAdd(newFeedback);
@@ -85,7 +86,7 @@ function FeedbackForm() {
         </div>
 
         {message && <div className="message">{message}</div>}
-        {editMode && (
+        {/* {editMode && (
           <div
             className="message"
             style={{
@@ -97,7 +98,7 @@ function FeedbackForm() {
             <FaEdit style={{ marginRight: "0.5rem", marginBottom: "-3px" }} />
             {editMode}
           </div>
-        )}
+        )} */}
       </form>
     </Card>
   );

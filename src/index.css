@@ -172,8 +172,8 @@ input:focus {
 }
 
 .edit-item-num {
-  color: #202142;
-  background-color: lime;
+  /* color: #202142; */
+  background-color: #530969;
 }
 
 .btn {
