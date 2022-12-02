@@ -36,6 +36,7 @@ const FeedbackProvider = ({ children }) => {
   const addFeedback = (newFeedback) => {
     newFeedback.id = uuidv4();
     // creating new id field in newFeedback. same as: { id: uuidv4(), ...newFeedback }
+    console.log(newFeedback);
     setFeedback([newFeedback, ...feedback]);
     console.log(feedback);
   };
@@ -55,6 +56,8 @@ const FeedbackProvider = ({ children }) => {
     });
   };
 
+  const [selected, setSelected] = useState(1);
+
   return (
     <FeedbackContext.Provider
       value={{
@@ -63,6 +66,8 @@ const FeedbackProvider = ({ children }) => {
         deleteFeedback,
         editFeedback,
         feedbackEdit,
+        selected,
+        setSelected,
       }}
     >
       {children}
