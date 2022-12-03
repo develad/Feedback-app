@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 const FeedbackContext = createContext({
   feedback: [],
@@ -22,13 +22,11 @@ const FeedbackProvider = ({ children }) => {
   }, []);
 
   const fetchFeedback = async () => {
-    const res = await fetch(
-      "http://localhost:5000/feedback?_sort=id&_order=desc"
-    );
+    const res = await fetch("/feedback?_sort=id&_order=desc");
     const data = await res.json();
 
     setFeedback(data);
-    // setIsLoading(false);
+    setIsLoading(false);
   };
   const [feedbackEdit, setFeedbackEdit] = useState({
     item: {},
@@ -36,12 +34,25 @@ const FeedbackProvider = ({ children }) => {
   });
 
   // Add Feedback
-  const addFeedback = (newFeedback) => {
-    newFeedback.id = uuidv4();
+  const addFeedback = async (newFeedback) => {
+    //Removing uuid because json-server is generating automatically an id
+
+    // newFeedback.id = uuidv4();
+
     // creating new id field in newFeedback. same as: { id: uuidv4(), ...newFeedback }
-    console.log(newFeedback);
-    setFeedback([newFeedback, ...feedback]);
-    console.log(feedback);
+    // console.log(newFeedback);
+
+    const response = await fetch("/feedback", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newFeedback),
+    });
+
+    const data = await response.json();
+    setFeedback([data, ...feedback]);
+    // console.log(feedback);
   };
 
   // Delete Feedback
