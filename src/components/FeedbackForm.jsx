@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
-import { FaEdit } from "react-icons/fa";
 import FeedbackContext from "../context/FeedbackContext";
+// import { FaEdit } from "react-icons/fa";
 
 import RatingSelect from "./RatingSelect";
 import Button from "./shared/Button";
@@ -8,7 +8,7 @@ import Card from "./shared/Card";
 
 function FeedbackForm() {
   const [text, setText] = useState("");
-  const [editMode, setEditMode] = useState("");
+  // const [editMode, setEditMode] = useState("");
   // const [rating, setSelected] = useState(10);
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMassage] = useState("");
@@ -27,7 +27,7 @@ function FeedbackForm() {
       setBtnDisabled(false);
       setText(feedbackEdit.item.text);
       setSelected(feedbackEdit.item.rating);
-      setEditMode("Edit Mode!");
+      // setEditMode("Edit Mode!");
     }
   }, [feedbackEdit, setSelected]);
 
@@ -58,7 +58,7 @@ function FeedbackForm() {
         updateFeedback(feedbackEdit.item.id, newFeedback);
         setFeedbackEdit({ ...feedbackEdit, edit: false });
         // setSelected(null);
-        setEditMode("");
+        // setEditMode("");
       } else {
         handleAdd(newFeedback);
       }

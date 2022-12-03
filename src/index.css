@@ -252,6 +252,9 @@ input:focus {
 }
 
 @media (max-width: 600px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
   .rating li {
     margin: 10px 3px;
   }
@@ -266,5 +269,14 @@ input:focus {
 
   .input-group input {
     width: 80%;
+  }
+
+  .edit,
+  .close {
+    font-size: 1.4rem;
+    right: 10px;
+  }
+  .edit {
+    right: 50px;
   }
 }

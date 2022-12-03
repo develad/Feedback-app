@@ -19,19 +19,21 @@ function Feedbackitem({ item }) {
       <div className={`num-display ${checkEdit() ? "edit-item-num" : ""}`}>
         {item.rating}
       </div>
-      <button
-        className="close"
-        onClick={() => handleDelete(item.id)}
-      >
-        <FaTimes color={checkEdit() ? "white" : "purple"} />
-      </button>
+      <div className="btn-box">
+        <button
+          className="close"
+          onClick={() => handleDelete(item.id)}
+        >
+          <FaTimes color={checkEdit() ? "white" : "#202142"} />
+        </button>
 
-      <button
-        className="edit"
-        onClick={() => editFeedback(item)}
-      >
-        <FaEdit color={checkEdit() ? "white" : "purple"} />
-      </button>
+        <button
+          className="edit"
+          onClick={() => editFeedback(item)}
+        >
+          <FaEdit color={checkEdit() ? "white" : "#202142"} />
+        </button>
+      </div>
       <div className="text-display">{item.text}</div>
     </Card>
   );
