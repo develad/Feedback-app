@@ -28,7 +28,7 @@ const FeedbackProvider = ({ children }) => {
     const data = await res.json();
 
     setFeedback(data);
-    setIsLoading(false);
+    // setIsLoading(false);
   };
   const [feedbackEdit, setFeedbackEdit] = useState({
     item: {},
